@@ -1,10 +1,11 @@
 import { useEffect, useState } from "react";
 import del from "../../Images/delete.png"
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css"
 function ViewRentedCars() {
     const [rentedCars, setRentedCars] = useState([])
+    const navigate = useNavigate()
     useEffect(() => {
 
         const usertoken = localStorage.getItem("usertoken")
