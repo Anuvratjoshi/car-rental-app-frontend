@@ -8,6 +8,10 @@ function ViewPostedCars() {
     const [postedCars,setPostedCars] = useState([])
 
     useEffect(() => {
+        const agencyToken = localStorage.getItem("agencytoken")
+        if(!agencyToken){
+            return navigate("/")
+        }
        
         fetch("https://car-rental-app-backend.onrender.com/viewpostedcars", {
             method: "POST",

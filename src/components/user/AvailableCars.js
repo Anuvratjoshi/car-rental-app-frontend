@@ -2,13 +2,18 @@ import { useEffect, useState } from "react"
 import { toast } from "react-toastify"
 import "react-toastify/dist/ReactToastify.css";
 import cart from "../../Images/cart.png"
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 function AvailableCars() {
     const [cars, setCars] = useState([])
     const [selectedOptionValue, setSelectedOptionValue] = useState("")
     const [cartLength,setCartItemsLength] = useState(0)
+    const navigate = useNavigate()
 
     useEffect(() => {
+        const usertoken = localStorage.getItem("usertoken")
+        if(!usertoken){
+            return navigate("/")
+        }
         fetch("https://car-rental-app-backend.onrender.com/allcars", {
             headers: {
                 "Authorization": "Bearer " + localStorage.getItem("usertoken"),

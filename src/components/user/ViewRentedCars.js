@@ -6,6 +6,11 @@ import "react-toastify/dist/ReactToastify.css"
 function ViewRentedCars() {
     const [rentedCars, setRentedCars] = useState([])
     useEffect(() => {
+
+        const usertoken = localStorage.getItem("usertoken")
+        if(!usertoken){
+            return navigate("/")
+        }
         fetch("https://car-rental-app-backend.onrender.com/cartitems", {
             headers: {
                 "Authorization": "Bearer " + localStorage.getItem("usertoken"),

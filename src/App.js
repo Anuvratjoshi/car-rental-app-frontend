@@ -19,8 +19,8 @@ const Routing = () =>{
   const navigate = useNavigate()
   useEffect(()=>{
     const agencyToken = localStorage.getItem("agencytoken")
-    // const usertoken = localStorage.getItem("usertoken")
-    if(!agencyToken){
+    const usertoken = localStorage.getItem("usertoken")
+    if(!agencyToken && !usertoken){
       return navigate("/")
     }
   },[])

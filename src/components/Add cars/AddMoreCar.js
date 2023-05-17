@@ -17,6 +17,10 @@ function AddMoreCars() {
     // const [showRegisterPage, shouldShowRegisterPage] = useState(true)
 
     useEffect(() => {
+        const agencyToken = localStorage.getItem("agencytoken")
+        if(!agencyToken){
+            return navigate("/")
+        }
         /*
         -now we have our url now we can make a seperate network req to our server to post the data
         -but posting the photo to cloudinary and using that setting the url is time taking thats why we are making network call in use effect
