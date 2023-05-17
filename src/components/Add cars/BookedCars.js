@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react"
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 
 function BookedCars() {
   const [bookedCars, setBookedCars] = useState([])
-
+  const navigate = useNavigate()
   useEffect(() => {
 
     const agencyToken = localStorage.getItem("agencytoken")
